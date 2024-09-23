@@ -11,11 +11,11 @@
     icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
     ingresses:
     - name: chartmuseum
-      url: http://chartmuseum-jx.change.me
+      url: http://chartmuseum-jx.jx.peaq.network
     - name: hook
-      url: http://hook-jx.change.me/hook
+      url: http://hook-jx.jx.peaq.network/hook
     - name: nexus
-      url: http://nexus-jx.change.me
+      url: http://nexus-jx.jx.peaq.network
     lastDeployed: "2024-09-23T20:07:33Z"
     name: jxboot-helmfile-resources
     releaseName: jxboot-helmfile-resources
@@ -27,7 +27,7 @@
     version: 1.1.383
   - apiVersion: v1
     appVersion: 1.8.2
-    applicationUrl: http://dashboard-jx.change.me
+    applicationUrl: http://dashboard-jx.jx.peaq.network
     description: Web UI for Jenkins X, with a clear goal - visualize the pipelines
       - and their logs.
     firstDeployed: "2024-09-23T20:07:33Z"
@@ -35,7 +35,7 @@
     icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
     ingresses:
     - name: jx-pipelines-visualizer
-      url: http://dashboard-jx.change.me
+      url: http://dashboard-jx.jx.peaq.network
     lastDeployed: "2024-09-23T20:07:33Z"
     name: jx-pipelines-visualizer
     releaseName: jx-pipelines-visualizer

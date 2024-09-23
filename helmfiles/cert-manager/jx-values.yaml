@@ -39,7 +39,7 @@ jxRequirements:
   - key: staging
   - key: production
   ingress:
-    domain: 3.74.195.244.nip.io
+    domain: jx.peaq.network
     kind: ingress
     namespaceSubDomain: -cert-manager.
     tls:
