@@ -28,9 +28,9 @@ spec:
     kind: ingress
     namespaceSubDomain: -jx.
     tls:
-      email: ""
-      enabled: false
-      production: false
+      email: "hussain@eotlabs.io"
+      enabled: true
+      production: true
   pipelineUser:
     username: peaqbot
   repository: nexus
