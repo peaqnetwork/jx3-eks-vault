@@ -28,7 +28,7 @@ spec:
     kind: ingress
     namespaceSubDomain: -jx.
     tls:
-      email: "hussain@eotlabs.io"
+      email: hussain@eotlabs.io
       enabled: false
       production: false
   pipelineUser:

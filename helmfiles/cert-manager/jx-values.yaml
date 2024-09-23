@@ -43,7 +43,7 @@ jxRequirements:
     kind: ingress
     namespaceSubDomain: -cert-manager.
     tls:
-      email: ""
+      email: hussain@eotlabs.io
       enabled: false
       production: false
   pipelineUser:
