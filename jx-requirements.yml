@@ -29,7 +29,7 @@ spec:
     namespaceSubDomain: -jx.
     tls:
       email: "hussain@eotlabs.io"
-      enabled: true
+      enabled: false
       production: false
   pipelineUser:
     username: peaqbot
