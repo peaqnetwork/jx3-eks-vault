@@ -24,7 +24,7 @@ spec:
   - key: staging
   - key: production
   ingress:
-    domain: jx.peaq.network
+    domain: p.peaq.network
     kind: ingress
     namespaceSubDomain: -jx.
     tls:
