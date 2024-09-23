@@ -19,4 +19,4 @@ spec:
             name: nexus
             port:
               number: 80
-    host: nexus-jx.change.me
+    host: nexus-jx.3.74.195.244.nip.io

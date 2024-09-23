@@ -24,7 +24,7 @@ spec:
   - key: staging
   - key: production
   ingress:
-    domain: ""
+    domain: 3.74.195.244.nip.io
     kind: ingress
     namespaceSubDomain: -jx.
     tls:
