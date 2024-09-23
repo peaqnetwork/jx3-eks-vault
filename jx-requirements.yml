@@ -30,7 +30,7 @@ spec:
     tls:
       email: "hussain@eotlabs.io"
       enabled: true
-      production: true
+      production: false
   pipelineUser:
     username: peaqbot
   repository: nexus
