@@ -1,0 +1,92 @@
+# Source: tekton-pipeline/templates/tekton-pipelines-remote-resolvers-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: resolvers
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/name: resolvers
+    app.kubernetes.io/part-of: tekton-pipelines
+    app.kubernetes.io/version: v0.42.0
+    pipeline.tekton.dev/release: v0.42.0
+    version: v0.42.0
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: tekton-pipelines-remote-resolvers
+  annotations:
+    meta.helm.sh/release-name: 'tekton-pipeline'
+    wave.pusher.com/update-on-config-change: 'true'
+  namespace: tekton-pipelines
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: resolvers
+      app.kubernetes.io/instance: default
+      app.kubernetes.io/name: resolvers
+      app.kubernetes.io/part-of: tekton-pipelines
+  template:
+    metadata:
+      labels:
+        app: tekton-pipelines-resolvers
+        app.kubernetes.io/component: resolvers
+        app.kubernetes.io/instance: default
+        app.kubernetes.io/name: resolvers
+        app.kubernetes.io/part-of: tekton-pipelines
+        app.kubernetes.io/version: v0.42.0
+        pipeline.tekton.dev/release: v0.42.0
+        version: v0.42.0
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/component: resolvers
+                  app.kubernetes.io/instance: default
+                  app.kubernetes.io/name: resolvers
+                  app.kubernetes.io/part-of: tekton-pipelines
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      containers:
+      - env:
+        - name: SYSTEM_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONFIG_LOGGING_NAME
+          value: config-logging
+        - name: CONFIG_OBSERVABILITY_NAME
+          value: config-observability
+        - name: CONFIG_FEATURE_FLAGS_NAME
+          value: feature-flags
+        - name: CONFIG_LEADERELECTION_NAME
+          value: config-leader-election
+        - name: METRICS_DOMAIN
+          value: tekton.dev/resolution
+        - name: ARTIFACT_HUB_API
+          value: https://artifacthub.io/
+        image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.42.0@sha256:eaa7d21d45f0bc1c411823d6a943e668c820f9cf52f1549d188edb89e992f6e0
+        name: controller
+        ports:
+        - containerPort: 9090
+          name: metrics
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+      nodeSelector:
+      serviceAccountName: tekton-pipelines-resolvers
+      tolerations:

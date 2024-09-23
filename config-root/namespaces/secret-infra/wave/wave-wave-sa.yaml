@@ -1,0 +1,14 @@
+# Source: wave/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: wave
+    release: "wave"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: wave-wave
+  annotations:
+    meta.helm.sh/release-name: 'wave'
+    kapp.k14s.io/change-group: 'apps.jenkins-x.io/pusher-wave'
+  namespace: secret-infra

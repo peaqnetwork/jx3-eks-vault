@@ -1,0 +1,21 @@
+# Source: wave/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app: wave
+    release: "wave"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'cluster'
+  name: wave-wave
+  annotations:
+    meta.helm.sh/release-name: 'wave'
+    kapp.k14s.io/change-group: 'apps.jenkins-x.io/pusher-wave'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: wave-wave
+subjects:
+- kind: ServiceAccount
+  name: wave-wave
+  namespace: secret-infra

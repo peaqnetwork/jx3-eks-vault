@@ -20,15 +20,22 @@ jxRequirements:
     enabled: false
     schedule: ""
   cluster:
+    chartRepository: http://jenkins-x-chartmuseum.jx.svc.cluster.local:8080
+    clusterName: jx3-subtle-goose
     devEnvApprovers:
     - todo
     environmentGitOwner: todo
     gitKind: github
     gitName: github
     gitServer: https://github.com
+    project: "041640568050"
     provider: eks
+    region: eu-central-1
+    registry: 041640568050.dkr.ecr.eu-central-1.amazonaws.com
   environments:
   - key: dev
+    owner: peaqnetwork
+    repository: jx3-eks-vault
   - key: staging
   - key: production
   ingress:
@@ -39,8 +46,18 @@ jxRequirements:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: peaqbot
   repository: nexus
   secretStorage: vault
+  storage:
+  - name: logs
+    url: s3://logs-jx3-subtle-goose-2024092320041563640000000f
+  - name: reports
+    url: s3://reports-jx3-subtle-goose-20240923200415636500000010
+  - name: repository
+    url: s3://repository-jx3-subtle-goose-20240923200415636700000011
+  terraform: true
   vault: {}
   webhook: lighthouse
 jxRequirementsIngressExternalDNS:

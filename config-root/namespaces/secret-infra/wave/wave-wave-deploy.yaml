@@ -1,0 +1,48 @@
+# Source: wave/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wave
+    release: "wave"
+    heritage: "Helm"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: wave-wave
+  annotations:
+    meta.helm.sh/release-name: 'wave'
+    kapp.k14s.io/change-group: 'apps.jenkins-x.io/pusher-wave'
+  namespace: secret-infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wave
+      release: "wave"
+      heritage: "Helm"
+  template:
+    metadata:
+      labels:
+        app: wave
+        release: "wave"
+        heritage: "Helm"
+    spec:
+      containers:
+      - image: "quay.io/wave-k8s/wave:v0.8.0"
+        imagePullPolicy: IfNotPresent
+        name: wave-wave
+        args:
+        volumeMounts:
+        ports:
+        - containerPort: 9443
+          name: webhook-server
+          protocol: TCP
+        resources: {}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      serviceAccountName: wave-wave
+      nodeSelector: {}
+      affinity: {}
+      tolerations: []
+      volumes:
+      topologySpreadConstraints: []

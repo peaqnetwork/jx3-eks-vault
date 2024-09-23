@@ -2,9 +2,211 @@
   path: helmfiles/cert-manager/helmfile.yaml
 - namespace: jx
   path: helmfiles/jx/helmfile.yaml
+  releases:
+  - apiVersion: v1
+    appVersion: 1.1.383
+    description: A Helm chart for the resources for JX Boot
+    firstDeployed: "2024-09-23T20:07:33Z"
+    home: https://github.com/jenkins-x-charts/jxboot-helmfile-resources
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    ingresses:
+    - name: chartmuseum
+      url: http://chartmuseum-jx.change.me
+    - name: hook
+      url: http://hook-jx.change.me/hook
+    - name: nexus
+      url: http://nexus-jx.change.me
+    lastDeployed: "2024-09-23T20:07:33Z"
+    name: jxboot-helmfile-resources
+    releaseName: jxboot-helmfile-resources
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/jxboot-helmfile-resources
+    sources:
+    - https://github.com/jenkins-x-charts/jxboot-helmfile-resources.git
+    version: 1.1.383
+  - apiVersion: v1
+    appVersion: 1.8.2
+    applicationUrl: http://dashboard-jx.change.me
+    description: Web UI for Jenkins X, with a clear goal - visualize the pipelines
+      - and their logs.
+    firstDeployed: "2024-09-23T20:07:33Z"
+    home: https://github.com/jenkins-x/jx-pipelines-visualizer
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    ingresses:
+    - name: jx-pipelines-visualizer
+      url: http://dashboard-jx.change.me
+    lastDeployed: "2024-09-23T20:07:33Z"
+    name: jx-pipelines-visualizer
+    releaseName: jx-pipelines-visualizer
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/jx-pipelines-visualizer
+    sources:
+    - https://github.com/jenkins-x/jx-pipelines-visualizer
+    version: 1.8.2
+  - apiVersion: v1
+    description: 'This chart installs the jx-preview CRD and garbagecollection job '
+    firstDeployed: "2024-09-23T20:07:33Z"
+    home: https://github.com/jenkins-x-plugins/jx-preview
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    lastDeployed: "2024-09-23T20:07:33Z"
+    name: jx-preview
+    releaseName: jx-preview
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/jx-preview
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: 1.19.0
+    description: 'This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse). '
+    firstDeployed: "2024-09-23T20:07:33Z"
+    home: https://github.com/jenkins-x/lighthouse
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    lastDeployed: "2024-09-23T20:07:33Z"
+    name: lighthouse
+    releaseName: lighthouse
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/lighthouse
+    version: 1.19.0
+  - apiVersion: v1
+    appVersion: 0.1.41
+    description: A Helm chart for Kubernetes
+    firstDeployed: "2024-09-23T20:07:33Z"
+    home: https://github.com/jenkins-x-charts/nexus
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/jenkins-x-platform/images/nexus.png
+    lastDeployed: "2024-09-23T20:07:33Z"
+    name: nexus
+    releaseName: nexus
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/nexus
+    version: 0.1.41
+  - apiVersion: v1
+    appVersion: 0.12.0
+    deprecated: true
+    description: DEPRECATED Host your own Helm Chart Repository
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://github.com/helm/chartmuseum
+    icon: https://raw.githubusercontent.com/helm/chartmuseum/master/logo2.png
+    keywords:
+    - chartmuseum
+    - helm
+    - charts repo
+    lastDeployed: "2024-09-23T20:07:34Z"
+    name: chartmuseum
+    releaseName: chartmuseum
+    repositoryName: stable
+    repositoryUrl: https://charts.helm.sh/stable
+    resourcePath: config-root/namespaces/jx/chartmuseum
+    version: 2.14.2
+  - apiVersion: v2
+    appVersion: 0.5.9
+    description: Jenkins X next gen cloud CI / CD platform for Kubernetes
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://jenkins-x.io/
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    lastDeployed: "2024-09-23T20:07:34Z"
+    maintainers:
+    - email: jenkins-x@googlegroups.com
+      name: Jenkins X Team
+    name: jx-build-controller
+    releaseName: jx-build-controller
+    repositoryName: jxgh
+    repositoryUrl: https://jenkins-x-charts.github.io/repo
+    resourcePath: config-root/namespaces/jx/jx-build-controller
+    sources:
+    - https://github.com/jenkins-x-plugins/jx-build-controller
+    - https://github.com/jenkins-x-plugins/jx-build-controller.git
+    version: 0.5.9
 - namespace: nginx
   path: helmfiles/nginx/helmfile.yaml
+  releases:
+  - annotations:
+      artifacthub.io/changes: |
+        - "helm: Fix opentelemetry module installation for daemonset (#9792)"
+        - "Update charts/* to keep project name display aligned (#9931)"
+        - "Update Ingress-Nginx version controller-v1.8.0"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.8.0
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.20.0-0'
+    lastDeployed: "2024-09-23T20:07:34Z"
+    maintainers:
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: ingress-nginx
+    releaseName: nginx-ingress
+    repositoryName: ingress-nginx
+    repositoryUrl: https://kubernetes.github.io/ingress-nginx
+    resourcePath: config-root/namespaces/nginx/ingress-nginx-nginx-ingress
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    version: 4.7.0
 - namespace: secret-infra
   path: helmfiles/secret-infra/helmfile.yaml
+  releases:
+  - apiVersion: v2
+    appVersion: 8.5.5
+    deprecated: true
+    description: 'Deprecated: Kubernetes External Secrets CustomResourceDefinition'
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://github.com/external-secrets/kubernetes-external-secrets
+    keywords:
+    - kubernetes-external-secrets
+    - secrets
+    lastDeployed: "2024-09-23T20:07:34Z"
+    maintainers:
+    - name: external-secrets
+      url: https://github.com/external-secrets
+    name: kubernetes-external-secrets
+    releaseName: kubernetes-external-secrets
+    repositoryName: external-secrets
+    repositoryUrl: https://external-secrets.github.io/kubernetes-external-secrets
+    resourcePath: config-root/namespaces/secret-infra/kubernetes-external-secrets
+    sources:
+    - https://github.com/external-secrets/kubernetes-external-secrets
+    version: 8.5.5
+  - apiVersion: v2
+    appVersion: v0.9.0
+    description: wave chart that runs on kubernetes
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://github.com/wave-k8s/wave
+    keywords:
+    - wave
+    - kubernetes
+    lastDeployed: "2024-09-23T20:07:34Z"
+    name: wave
+    releaseName: wave
+    repositoryName: wave-k8s
+    repositoryUrl: https://wave-k8s.github.io/wave/
+    resourcePath: config-root/namespaces/secret-infra/wave
+    sources:
+    - https://github.com/wave-k8s/wave
+    version: 4.2.0
 - namespace: tekton-pipelines
   path: helmfiles/tekton-pipelines/helmfile.yaml
+  releases:
+  - apiVersion: v1
+    appVersion: 0.42.0
+    description: A Helm chart for Tekton Pipelines
+    firstDeployed: "2024-09-23T20:07:34Z"
+    home: https://github.com/cdfoundation/tekton-helm-chart
+    icon: https://avatars2.githubusercontent.com/u/47602533
+    lastDeployed: "2024-09-23T20:07:34Z"
+    name: tekton-pipeline
+    releaseName: tekton-pipeline
+    repositoryName: cdf
+    repositoryUrl: https://cdfoundation.github.io/tekton-helm-chart
+    resourcePath: config-root/namespaces/tekton-pipelines/tekton-pipeline
+    version: 1.0.2
